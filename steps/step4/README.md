@@ -37,3 +37,22 @@ uv run python steps/step4/stateful_chatbot_step4.py
 ## Limitations
 - Summary quality depends on model behavior.
 - No external persistence or governance layer yet.
+
+
+## What to test (to prove it works)
+
+### Test A: “Summary survives trimming”
+
+1. Set `max_turns=2` (small window)
+2. Chat 10+ turns and introduce a stable fact early:
+    
+    “My name is Amina. I’m building a LangChain project.”
+    
+3. After many turns, ask: “What’s my name and what am I building?”
+4. Check `/summary` to see the compressed memory.
+
+### Test B: “Summary updates periodically”
+
+Chat until you hit `summarize_every_n_turns` (default 6).
+
+Then run `/summary` — it should no longer be empty.

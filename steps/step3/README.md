@@ -34,3 +34,26 @@ uv run python steps/step3/stateful_chatbot_step3.py
 ## Limitations
 - Still in-memory only.
 - Multi-process or distributed deployments need Redis/DB.
+
+## What you should test (important)
+
+### 3.1) LRU eviction works
+
+Set:
+
+```python
+max_sessions_in_memory=3
+```
+
+Then create 5 sessions (`chat1`…`chat5`) and call `/sessions` to see only the most recent 3 remain.
+
+### 3.2) Session isolation still holds
+
+`chat1`: “my name is Amina”
+
+`chat2`: “what’s my name?” → should not know
+
+### 3.3) Memory remains bounded
+
+- Per session: last `max_turns`
+- Across sessions: last `max_sessions_in_memory`

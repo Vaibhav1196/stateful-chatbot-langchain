@@ -30,3 +30,12 @@ uv run python steps/step2/stateful_chatbot_step2.py
 ## Limitations
 - Total number of sessions is still unbounded.
 - Memory is still process-local and non-persistent.
+
+## Mini-tests (do these now)
+
+1. Set `max_turns=2`, chat for 8–10 turns, then ask:
+    - “What did I say at the very beginning?”
+    - It should forget early content.
+2. Paste a long paragraph in one message.
+    - With token trimming enabled, it should still keep the most recent context and not explode.
+3. Confirm multi-session isolation still works (`chat1`, `chat2`).

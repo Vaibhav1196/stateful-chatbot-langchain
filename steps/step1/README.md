@@ -33,3 +33,21 @@ uv run python steps/step1/stateful_chatbot_step1.py
 - No memory bounds
 - No token controls
 - No session eviction
+
+## Quick self-test checklist (do these now)
+
+1. In session `chat1`:
+    
+    `Hi, my name is Amina.`
+    
+    then: `What is my name?`
+    
+2. Start a new session `chat2`:
+    
+    `What is my name?`
+    
+    It should *not* know Amina.
+    
+3. Restart the program and ask again in `chat1`:
+    
+    It should forget (expected).
