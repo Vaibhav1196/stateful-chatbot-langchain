@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-label="Abstraction and DSA balance">
+  <rect width="1200" height="320" fill="#f8fafc"/>
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#0f172a">Use Abstractions and Data Structures Together</text>
+
+  <rect x="90" y="90" width="470" height="180" rx="14" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <text x="325" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#0c4a6e">LangChain Abstractions</text>
+  <text x="325" y="162" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">RunnableWithMessageHistory</text>
+  <text x="325" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">trim_messages</text>
+  <text x="325" y="214" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">Prompt templates</text>
+
+  <rect x="640" y="90" width="470" height="180" rx="14" fill="#ecfccb" stroke="#4d7c0f" stroke-width="2"/>
+  <text x="875" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#365314">Core DS&amp;A Control</text>
+  <text x="875" y="162" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">dict for session lookup</text>
+  <text x="875" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">deque for bounded windows</text>
+  <text x="875" y="214" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">OrderedDict for LRU eviction</text>
+
+  <line x1="560" y1="180" x2="640" y2="180" stroke="#334155" stroke-width="4"/>
+  <polygon points="640,180 628,172 628,188" fill="#334155"/>
+  <polygon points="560,180 572,172 572,188" fill="#334155"/>
+</svg>

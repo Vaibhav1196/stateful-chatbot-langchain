@@ -1,0 +1,13 @@
+[project]
+name = "stateful-chatbot-langchain"
+version = "0.1.0"
+description = "Learning project: building a stateful chatbot with LangChain and Groq (Steps 1-4)."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "langchain>=1.2.10",
+    "langchain-community>=0.4.1",
+    "langchain-groq>=1.1.2",
+    "python-dotenv>=1.2.2",
+    "transformers>=5.3.0",
+]

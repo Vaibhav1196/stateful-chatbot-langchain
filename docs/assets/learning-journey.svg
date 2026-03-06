@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="Step 1 to Step 4 learning journey">
+  <rect width="1200" height="360" fill="#f8fafc"/>
+  <text x="600" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#0f172a">Stateful Chatbot Learning Journey (Steps 1-4)</text>
+
+  <rect x="40" y="90" width="250" height="210" rx="14" fill="#dbeafe" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="165" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#1e3a8a">Step 1</text>
+  <text x="165" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#0f172a">A notebook per user</text>
+  <text x="165" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#0f172a">dict session memory</text>
+
+  <rect x="330" y="90" width="250" height="210" rx="14" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="455" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#14532d">Step 2</text>
+  <text x="455" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#0f172a">Backpack size limit</text>
+  <text x="455" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#0f172a">deque + token trim</text>
+
+  <rect x="620" y="90" width="250" height="210" rx="14" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="745" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#78350f">Step 3</text>
+  <text x="745" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#0f172a">Library shelf policy</text>
+  <text x="745" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#0f172a">LRU session eviction</text>
+
+  <rect x="910" y="90" width="250" height="210" rx="14" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="1035" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#7f1d1d">Step 4</text>
+  <text x="1035" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#0f172a">Diary + short notes</text>
+  <text x="1035" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#0f172a">summary + recent window</text>
+
+  <line x1="290" y1="195" x2="330" y2="195" stroke="#334155" stroke-width="3"/>
+  <polygon points="330,195 320,189 320,201" fill="#334155"/>
+  <line x1="580" y1="195" x2="620" y2="195" stroke="#334155" stroke-width="3"/>
+  <polygon points="620,195 610,189 610,201" fill="#334155"/>
+  <line x1="870" y1="195" x2="910" y2="195" stroke="#334155" stroke-width="3"/>
+  <polygon points="910,195 900,189 900,201" fill="#334155"/>
+</svg>
