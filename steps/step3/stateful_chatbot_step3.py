@@ -136,33 +136,78 @@ def chat_once(session_id: str, text: str) -> str:
 
 
 if __name__ == "__main__":
-    session_id = input("Session ID (default: chat1): ").strip() or "chat1"
-    print(f"\nUsing session: {session_id}")
+    current_session_id = input("Default Session ID (default: chat1): ").strip() or "chat1"
+
+    print(f"\nDefault session: {current_session_id}")
     print(f"Per-session window: last {MEMORY.max_turns} turns")
     print(f"Session LRU cap: {MEMORY.max_sessions_in_memory} sessions")
     print(
         f"Token trimming: {'ON' if MEMORY.enable_token_trimming else 'OFF'} "
         f"(max_tokens={MEMORY.max_tokens})"
     )
-    print("Commands: /sessions, /delete <session_id>, exit\n")
+    print("Commands:")
+    print("  <message>                    -> send to current default session")
+    print("  <session_id>: <message>      -> send to a specific session")
+    print("  /use <session_id>            -> change default session")
+    print("  /sessions                    -> list active sessions")
+    print("  /delete <session_id>         -> delete a session")
+    print("  /current                     -> show current default session")
+    print("  exit                         -> quit\n")
 
     while True:
-        user_text = input("You: ").strip()
-        if user_text.lower() in {"exit", "quit"}:
+        raw = input("You: ").strip()
+        if raw.lower() in {"exit", "quit"}:
             break
 
-        if user_text == "/sessions":
+        if raw == "/sessions":
             print("Active sessions in LRU order (oldest -> newest):")
             print(store.debug_sessions(), "\n")
             continue
 
-        if user_text.startswith("/delete"):
-            parts = user_text.split(maxsplit=1)
+        if raw == "/current":
+            print(f"Current default session: {current_session_id}\n")
+            continue
+
+        if raw.startswith("/use "):
+            parts = raw.split(maxsplit=1)
+            new_session_id = parts[1].strip()
+            if new_session_id:
+                current_session_id = new_session_id
+                print(f"Switched default session to: {current_session_id}\n")
+            else:
+                print("Usage: /use <session_id>\n")
+            continue
+
+        if raw.startswith("/delete"):
+            parts = raw.split(maxsplit=1)
             if len(parts) == 2:
-                store.delete(parts[1].strip())
-                print("Deleted.\n")
+                sid_to_delete = parts[1].strip()
+                store.delete(sid_to_delete)
+                print(f"Deleted session: {sid_to_delete}\n")
+
+                if sid_to_delete == current_session_id:
+                    current_session_id = "chat1"
+                    print("Deleted session was the default session. Reset default to: chat1\n")
             else:
                 print("Usage: /delete <session_id>\n")
             continue
 
+        # Support multi-session input in same process:
+        # Example: chat2: Hi, my name is Bob
+        if ":" in raw:
+            session_id, user_text = raw.split(":", 1)
+            session_id = session_id.strip()
+            user_text = user_text.strip()
+
+            if not session_id:
+                print("Invalid format. Use: <session_id>: <message>\n")
+                continue
+            if not user_text:
+                print("Message cannot be empty.\n")
+                continue
+        else:
+            session_id = current_session_id
+            user_text = raw
+
+        print(f"[session={session_id}]")
         print("Bot:", chat_once(session_id, user_text), "\n")
