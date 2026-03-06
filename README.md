@@ -212,3 +212,14 @@ Planned improvements:
 - API deployment using FastAPI
 - Streaming responses
 - Web UI for interaction
+
+
+
+
+
+https://github.com/user-attachments/assets/053cb888-956e-44b1-851f-75e27ceb6b94
+
+
+
+
+
