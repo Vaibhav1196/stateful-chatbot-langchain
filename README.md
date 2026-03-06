@@ -1,11 +1,44 @@
-# Stateful Chatbot with LangChain (Python)
+# Stateful Chatbot with LangChain
 
-A structured learning repository for building a **stateful chatbot** with LangChain and Groq across **Steps 1-4**.
+A step-by-step Python project that demonstrates how to build a **stateful chatbot using LangChain**.
+
+The project progressively introduces memory management techniques used in real LLM applications:
+
+1. Basic session memory
+2. Bounded conversation memory
+3. LRU session eviction
+4. Summary-based long-term memory
+
+The goal of this repository is to help developers understand **how conversational state works in LLM systems** and how to implement it incrementally using Python and LangChain.
 
 ## Project Overview
 This project teaches how chatbot memory evolves from a simple per-session message store to a multi-layer memory system with bounded windows, token trimming, LRU session eviction, and summary memory.
 
 The scope is intentionally limited to **Phase A using RAM only, Steps 1-4**.
+
+## Architecture Overview
+```text
+User Input
+     │
+     ▼
+Session ID
+     │
+     ▼
+Session Store (LRU)
+     │
+     ├── Summary Memory
+     │
+     └── Recent Message Window
+            │
+            ▼
+      LangChain Chain
+            │
+            ▼
+        LLM (Groq)
+            │
+            ▼
+        Response
+```
 
 ## Learning Objective
 By the end of Step 4, you will understand how to design chatbot memory that is:
@@ -13,6 +46,16 @@ By the end of Step 4, you will understand how to design chatbot memory that is:
 - bounded
 - resource-conscious
 - extendable toward persistent storage
+
+## Learning Roadmap
+```text
+| Step | Concept | Description |
+|-----|------|------|
+| Step 1 | Stateful Chat | Basic session memory using `RunnableWithMessageHistory` |
+| Step 2 | Bounded Memory | Limit conversation growth using window/token trimming |
+| Step 3 | LRU Sessions | Control number of sessions stored in memory |
+| Step 4 | Summary Memory | Combine summary + recent messages for scalable context |
+```
 
 ## What “Stateful Chatbot” Means
 A stateful chatbot includes relevant previous conversation context in each new model call, instead of treating every message as stateless.
@@ -158,3 +201,14 @@ This is the core value of this repository: modern AI tooling is heavily abstract
 - Implement each step yourself, line by line, instead of only executing the final files.
 - Use the code as a reference to understand **when abstraction helps** and **when basic data structures and algorithms should enforce policy**.
 - Keep notes on what changed between steps; that delta is the real learning output.
+
+
+## Future Work
+
+Planned improvements:
+
+- Persistent memory using SQLite or Redis
+- Vector memory with embeddings
+- API deployment using FastAPI
+- Streaming responses
+- Web UI for interaction
